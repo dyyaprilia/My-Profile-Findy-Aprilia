@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Findy Aprilia | Link in Bio ✨</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        softPink: {
+                            50: '#FFF0F5',
+                            100: '#FFE4E1',
+                            200: '#FFD1DC',
+                            300: '#FCA5A5',
+                        },
+                        choco: {
+                            light: '#D7A86E',
+                            medium: '#8C5A4C',
+                            dark: '#6E473B',
+                            deep: '#4A2E2B',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        code: ['"Fira Code"', 'monospace'],
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-8px) rotate(2deg)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(255, 209, 220, 0.6)' },
+                            '50%': { boxShadow: '0 0 25px rgba(215, 168, 110, 0.8)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Pattern Grid Notebook Soft & Tech Vibes */
+        body {
+            background-color: #FFF0F5;
+            background-image: 
+                radial-gradient(#8C5A4C 0.6px, transparent 0.6px), 
+                linear-gradient(to right, rgba(215, 168, 110, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(215, 168, 110, 0.08) 1px, transparent 1px);
+            background-size: 20px 20px, 20px 20px, 20px 20px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #4A2E2B;
+            user-select: none;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 209, 220, 0.8);
+            box-shadow: 0 20px 40px rgba(74, 46, 43, 0.08);
+        }
+
+        /* Cute Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF0F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D7A86E;
+            border-radius: 10px;
+        }
+
+        /* Sparkle Spark Animations */
+        .sparkle-btn {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .sparkle-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(110, 71, 59, 0.18);
+        }
+        .sparkle-btn:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        /* Cute Sparkle Cursor Trail Effect */
+        .cursor-sparkle {
+            position: fixed;
+            pointer-events: none;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #D7A86E;
+            animation: fadeOut 0.8s forwards ease-out;
+            z-index: 9999;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: scale(1) rotate(0deg); }
+            100% { opacity: 0; transform: scale(2.5) rotate(45deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 md:p-6 relative">
+
+    <!-- Floating Background Decorative Elements -->
+    <div class="fixed top-10 left-8 text-choco-medium opacity-20 text-4xl animate-float pointer-events-none select-none" style="animation-delay: 0s;">
+        &lt;code&gt; ✨
+    </div>
+    <div class="fixed bottom-12 right-8 text-softPink-300 opacity-40 text-5xl animate-float pointer-events-none select-none" style="animation-delay: 1.5s;">
+        &#123; &#125; 🌸
+    </div>
+    <div class="fixed top-1/3 right-6 text-choco-light opacity-30 text-3xl animate-float pointer-events-none select-none" style="animation-delay: 1s;">
+        &lt;/&gt; 💻
+    </div>
+    <div class="fixed bottom-1/4 left-6 text-choco-medium opacity-20 text-3xl animate-float pointer-events-none select-none" style="animation-delay: 2s;">
+        ⚡ console.log()
+    </div>
+
+    <!-- Main Container Card -->
+    <main class="w-full max-w-md glass-card rounded-[32px] p-6 md:p-8 relative z-10 my-4 border-4 border-white/60">
+
+        <!-- Top Header Utility Actions -->
+        <div class="flex justify-between items-center mb-6">
+            <!-- Tech Badge -->
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-code font-semibold bg-softPink-100 text-choco-deep border border-softPink-200 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                v2.0.26.exe
+            </span>
+
+            <!-- Quick Action Buttons -->
+            <div class="flex items-center gap-2">
+                <!-- Audio BGM Toggle Button -->
+                <button id="musicToggle" onclick="toggleAudio()" class="w-9 h-9 rounded-full bg-softPink-100 hover:bg-softPink-200 text-choco-dark flex items-center justify-center transition-transform hover:scale-110 shadow-sm" title="Play/Pause Audio">
+                    <i id="musicIcon" class="fa-solid fa-music text-xs"></i>
+                </button>
+                <!-- Copy Profile Link Button -->
+                <button onclick="copyProfileLink()" class="w-9 h-9 rounded-full bg-softPink-100 hover:bg-softPink-200 text-choco-dark flex items-center justify-center transition-transform hover:scale-110 shadow-sm" title="Bagikan Profile">
+                    <i class="fa-solid fa-share-nodes text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Profile Header Section -->
+        <div class="flex flex-col items-center text-center relative">
+            <!-- Avatar Outer Frame -->
+            <div class="relative mb-4 group cursor-pointer" onclick="triggerConfetti()">
+                <div class="absolute -inset-1.5 bg-gradient-to-r from-softPink-200 via-choco-light to-softPink-100 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300 animate-spin-slow"></div>
+                <div class="relative w-28 h-28 rounded-full p-1 bg-white shadow-md overflow-hidden border-2 border-softPink-200">
+                    <img src="foto.png" 
+                         alt="Findy Aprilia Avatar" 
+                         class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-500"
+                         onerror="this.src='https://placehold.co/150x150/FFD1DC/4A2E2B?text=Findy+✨'">
+                </div>
+                <!-- Cute Sticker Badge on Avatar -->
+                <span class="absolute bottom-1 right-0 bg-white border-2 border-softPink-200 rounded-full w-8 h-8 flex items-center justify-center text-sm shadow-sm animate-bounce">
+                    💻
+                </span>
+            </div>
+
+            <!-- Name & Title -->
+            <h1 class="text-2xl font-extrabold text-choco-deep tracking-tight flex items-center justify-center gap-2">
+                Findy Aprilia
+                <i class="fa-solid fa-circle-check text-choco-light text-base" title="Verified Cutie"></i>
+            </h1>
+            
+            <!-- Campus & Informatics Info -->
+            <p class="text-xs font-semibold text-choco-medium mt-1 flex items-center gap-1 justify-center bg-white/80 px-3 py-1 rounded-full border border-softPink-200">
+                <span>🎓</span> Informatika '25 • Fakultas Teknik
+            </p>
+            <p class="text-xs text-choco-medium/90 font-medium mt-1">
+                Universitas Sultan Ageng Tirtayasa (UNTIRTA) 🦅
+            </p>
+
+            <!-- Aesthetic Status Tag / Code Box -->
+            <div class="mt-4 w-full bg-choco-deep/95 text-softPink-100 p-3 rounded-2xl text-left text-xs font-code shadow-inner border border-choco-medium/30 relative overflow-hidden group">
+                <div class="flex items-center justify-between pb-1.5 mb-1.5 border-b border-choco-medium/40">
+                    <div class="flex gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    </div>
+                    <span class="text-[10px] opacity-60">status.js</span>
+                </div>
+                <p class="text-pink-300 font-semibold">&gt; console.log("Hello World! ✨");</p>
+                <p class="text-choco-light mt-1 text-[11px] flex items-center gap-1">
+                    <span class="animate-pulse text-amber-300">⚡</span> Compiling coffee & code...
+                </p>
+            </div>
+
+            <!-- Interactive Aesthetic Chips / Tags -->
+            <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+                <span class="px-2.5 py-1 rounded-xl text-[11px] font-medium bg-softPink-100 text-choco-dark border border-softPink-200">
+                    Informatics Student 💻
+                </span>
+                <span class="px-2.5 py-1 rounded-xl text-[11px] font-medium bg-softPink-100 text-choco-dark border border-softPink-200">
+                    Tech Enthusiast ✨
+                </span>
+                <span class="px-2.5 py-1 rounded-xl text-[11px] font-medium bg-softPink-100 text-choco-dark border border-softPink-200">
+                    Analyst Dream 🐛
+                </span>
+            </div>
+        </div>
+
+        <!-- Aesthetic Mini Vinyl / Music Player Widget -->
+        <div class="mt-5 p-3.5 rounded-2xl bg-white/90 border-2 border-softPink-200 shadow-sm flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <!-- Spinning Vinyl Record -->
+                <div class="relative w-11 h-11 flex-shrink-0">
+                    <div id="vinylDisc" class="w-11 h-11 rounded-full bg-choco-deep border-2 border-softPink-200 flex items-center justify-center relative shadow-sm">
+                        <div class="w-4 h-4 rounded-full bg-softPink-200 border border-choco-dark flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 rounded-full bg-choco-deep"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Track Details -->
+                <div class="text-left overflow-hidden">
+                    <div class="flex items-center gap-1">
+                        <span class="text-[10px] font-code uppercase text-pink-500 font-bold tracking-wider">Now Playing</span>
+                        <span id="playingIndicator" class="hidden flex gap-0.5 items-end h-2.5">
+                            <span class="w-0.5 bg-pink-400 h-2.5 animate-pulse"></span>
+                            <span class="w-0.5 bg-pink-400 h-1.5 animate-pulse" style="animation-delay: 0.2s"></span>
+                            <span class="w-0.5 bg-pink-400 h-2 animate-pulse" style="animation-delay: 0.4s"></span>
+                        </span>
+                    </div>
+                    <div class="text-xs font-bold text-choco-deep truncate">You're On Your Own, Kid</div>
+                    <div class="text-[10px] text-choco-medium truncate">Taylor Swift</div>
+                </div>
+            </div>
+            <!-- Play/Pause Music Player Button -->
+            <button onclick="toggleAudio()" class="w-9 h-9 rounded-full bg-softPink-100 hover:bg-softPink-200 text-choco-deep flex items-center justify-center transition-all cursor-pointer">
+                <i id="widgetPlayIcon" class="fa-solid fa-play text-xs pl-0.5"></i>
+            </button>
+        </div>
+        
+        <!-- Tag Audio Local -->
+        <audio id="audioPlayer" src="lagu.mp3" loop preload="auto"></audio>
+
+        <!-- Social & Important Links List -->
+        <div class="mt-5 flex flex-col gap-3.5">
+
+            <!-- 1. Instagram -->
+            <a href="https://www.instagram.com/dyvslel_?psln=MXJvM2RxMjY1eGo1dw==" target="_blank" rel="noopener" 
+               class="sparkle-btn w-full py-3.5 px-4 rounded-2xl bg-white text-choco-deep font-semibold flex items-center justify-between border-2 border-softPink-200 shadow-sm group hover:border-pink-300">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">Instagram</div>
+                        <div class="text-[11px] text-choco-medium font-normal">@findyaprilia</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-choco-medium group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </a>
+
+            <!-- 2. TikTok -->
+            <a href="https://www.tiktok.com/@dyyaprilia?_r=1&_t=ZS-9AdDtlTMrK8" target="_blank" rel="noopener" 
+               class="sparkle-btn w-full py-3.5 px-4 rounded-2xl bg-white text-choco-deep font-semibold flex items-center justify-between border-2 border-softPink-200 shadow-sm group hover:border-choco-medium">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-stone-100 text-choco-deep flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">TikTok</div>
+                        <div class="text-[11px] text-choco-medium font-normal">@findyaprilia</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-choco-medium group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </a>
+
+            <!-- 3. YouTube -->
+            <a href="https://www.youtube.com/@findyaprilia" target="_blank" rel="noopener" 
+               class="sparkle-btn w-full py-3.5 px-4 rounded-2xl bg-white text-choco-deep font-semibold flex items-center justify-between border-2 border-softPink-200 shadow-sm group hover:border-red-300">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-red-50 text-red-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">YouTube Channel</div>
+                        <div class="text-[11px] text-choco-medium font-normal">@findyaprilia</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-choco-medium group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </a>
+
+            <!-- 4. LinkedIn -->
+            <a href="https://www.linkedin.com/in/findy-aprilia-b46b12371?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" 
+               class="sparkle-btn w-full py-3.5 px-4 rounded-2xl bg-white text-choco-deep font-semibold flex items-center justify-between border-2 border-softPink-200 shadow-sm group hover:border-sky-300">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">LinkedIn</div>
+                        <div class="text-[11px] text-choco-medium font-normal">Findy Aprilia</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-choco-medium group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </a>
+
+            <!-- 5. Lynk.id -->
+            <a href="https://lynk.id/findruangterbuka99" target="_blank" rel="noopener" 
+               class="sparkle-btn w-full py-3.5 px-4 rounded-2xl bg-white text-choco-deep font-semibold flex items-center justify-between border-2 border-softPink-200 shadow-sm group hover:border-softPink-300">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-softPink-100 text-choco-dark flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">Lynk.id</div>
+                        <div class="text-[11px] text-choco-medium font-normal">lynk.id/findyaprilia</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-choco-medium group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </a>
+
+        </div>
+
+        <!-- Interactive Quote / Micro Widget -->
+        <div class="mt-6 p-4 rounded-2xl bg-softPink-50/80 border border-softPink-200 text-center relative overflow-hidden">
+            <span class="text-xs font-code text-choco-medium block font-medium">
+                💌 "turning caffeine into clean code & aesthetic ideas"
+            </span>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-6 text-center">
+            <p class="text-[11px] text-choco-medium/70 font-medium flex items-center justify-center gap-1">
+                Made with <i class="fa-solid fa-heart text-xs text-pink-400"></i> by Findy • 2026
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Custom Toast Alert Container -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-choco-deep text-softPink-100 px-5 py-2.5 rounded-full text-xs font-semibold shadow-xl border border-softPink-200 opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2">
+        <i class="fa-solid fa-check-circle text-emerald-400"></i>
+        <span id="toastMsg">Link profil berhasil disalin! ✨</span>
+    </div>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        // Copy Link Functionality
+        function copyProfileLink() {
+            const tempInput = document.createElement('input');
+            tempInput.value = window.location.href;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast("Link profile berhasil disalin! 🎀");
+            triggerConfetti();
+        }
+
+        // Custom Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+            }, 2500);
+        }
+
+        // Cute Confetti Effect
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 40,
+                    spread: 60,
+                    origin: { y: 0.7 },
+                    colors: ['#FFD1DC', '#D7A86E', '#8C5A4C', '#FFE4E1']
+                });
+            }
+        }
+
+        // Single Audio Player Logic
+        let isPlaying = false;
+        const audio = document.getElementById('audioPlayer');
+        const playIcon = document.getElementById('widgetPlayIcon');
+        const playingIndicator = document.getElementById('playingIndicator');
+        const vinylDisc = document.getElementById('vinylDisc');
+
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                
+                if (playIcon) {
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                }
+                if (playingIndicator) {
+                    playingIndicator.classList.add('hidden');
+                }
+                if (vinylDisc) {
+                    vinylDisc.classList.remove('animate-spin');
+                }
+            } else {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    
+                    if (playIcon) {
+                        playIcon.classList.remove('fa-play');
+                        playIcon.classList.add('fa-pause');
+                    }
+                    if (playingIndicator) {
+                        playingIndicator.classList.remove('hidden');
+                    }
+                    if (vinylDisc) {
+                        vinylDisc.classList.add('animate-spin');
+                    }
+                }).catch(error => {
+                    console.error("Gagal memutar audio:", error);
+                    alert("Gagal memutar lagu. Pastikan file 'lagu.mp3' berada di folder yang sama dengan file HTML ini!");
+                });
+            }
+        }
+
+        // Sparkle Effect on Cursor Movement
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() < 0.08) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'cursor-sparkle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                
+                const colors = ['#FFD1DC', '#D7A86E', '#FFF0F5'];
+                sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 800);
+            }
+        });
+    </script>
+</body>
+</html>
